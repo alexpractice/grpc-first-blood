@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.alexpractice.grpcFirstBlood;
+
+message AddAccountRequest {
+  string login = 1;
+}
+
+message AccountListResponse {
+  repeated string accounts = 1;
+}
+
+message EmptyModel {}
+
+service AccountService {
+  rpc add(AddAccountRequest) returns (EmptyModel);
+  rpc list(EmptyModel) returns (AccountListResponse);
+}
